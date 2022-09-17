@@ -1,5 +1,14 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+.app {
+    padding: 0rem 1rem 0rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+@import "./pokedex";
+@import "./loading";
+@import "./pokemon";
+@import "./popup"
