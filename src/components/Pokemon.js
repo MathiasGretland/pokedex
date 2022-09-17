@@ -1,5 +1,5 @@
 //import pokemonQuery
-import { Modal, TableCell, TableRow,} from '@material-ui/core'
+import {  TableCell, TableRow,} from '@material-ui/core'
 import { useGetPokemonByNameQuery } from '../services/pokemon'
 import Loading from './Loading'
 import { useState } from 'react'

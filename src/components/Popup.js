@@ -37,12 +37,22 @@ const Popup = ( {open, setOpen, data} ) => {
             <h1>{data.species.name.charAt(0).toUpperCase() + data.species.name.slice(1)}</h1>
             <div className="info">
                 <div className="abilities">
-                    <h3>HP</h3>
-                    <h3>ATTACK</h3>
-                    <h3>DEFENSE</h3>
-                    <h3>SPECIAL ATTACK</h3>
-                    <h3>SPECIAL DEFENSE</h3>
-                    <h3>SPEED</h3>
+                    <div className="textBox">
+                        <h3>HP</h3>
+                        <h3>ATTACK</h3>
+                        <h3>DEFENSE</h3>
+                        <h3>SPECIAL ATTACK</h3>
+                        <h3>SPECIAL DEFENSE</h3>
+                        <h3>SPEED</h3> 
+                    </div>
+                    <div className="textBox">
+                        <h3>{data.stats[0].base_stat}</h3>
+                        <h3>{data.stats[1].base_stat}</h3>
+                        <h3>{data.stats[2].base_stat}</h3>
+                        <h3>{data.stats[3].base_stat}</h3>
+                        <h3>{data.stats[4].base_stat}</h3>
+                        <h3>{data.stats[5].base_stat}</h3> 
+                    </div>
                 </div>
                 <div className="picture-rotation" >
                     <img src={selectedImage} alt={data.species.name} />

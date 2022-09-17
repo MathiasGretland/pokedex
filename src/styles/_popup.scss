@@ -1,20 +1,24 @@
 .popup {
     background: rgb(255, 255, 255);
-    height: 50vh;
+    max-height: 80vh;
     max-width: 1200px;
     h1 {
         font-size: 50px;
         text-align: center;
     }
-    img {
-        width: 20%;
-        
-    }
+    overflow: hidden;
+    overflow-y: auto;
+    background: linear-gradient(to right, rgb(255, 255, 255), rgb(139, 185, 226));
 }
 
 .abilities {
-    background:lightblue;
-    width: 20rem;
+    background:rgb(255, 255, 255);
+    max-width: 20rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    
 }
 
 .info {
@@ -22,12 +26,21 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
+    
+}
 
+.textBox {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    h3 {
+        font-style:oblique;
+    }
 }
 
 .picture-rotation {
-    width: 10%;
+    max-width: 20%;
     img {
-        width: 100%;
+        width: 200%;
     }
 }
