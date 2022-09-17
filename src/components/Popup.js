@@ -38,7 +38,7 @@ const Popup = ( {open, setOpen, data} ) => {
     >
         <div className="popup">
             <h1>{data.species.name.charAt(0).toUpperCase() + data.species.name.slice(1)}</h1>
-            <Button onClick={newImageHandler} variant="outlined" >NEXT</Button>
+            <Button onClick={newImageHandler} variant="outlined" >Next-Picture</Button>
             <div className="info">
                 <div className="abilities">
                     <div className="textBox">
