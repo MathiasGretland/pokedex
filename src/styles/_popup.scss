@@ -4,11 +4,19 @@
     max-width: 1200px;
     h1 {
         font-size: 50px;
+        -webkit-text-stroke-width: 3px;
+        -webkit-text-stroke-color: black;
+        color: white;
         text-align: center;
     }
     overflow: hidden;
     overflow-y: auto;
-    background: linear-gradient(to right, rgb(255, 255, 255), rgb(139, 185, 226));
+    background-image: linear-gradient(
+        to top, #e6b980 0%, #eacda3 100%);
+        Button {
+            display: block;
+            margin: 0 auto;
+        }
 }
 
 .abilities {
@@ -18,7 +26,7 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
-    
+    border-radius: 25px;
 }
 
 .info {
@@ -34,12 +42,12 @@
     justify-content: flex-start;
     flex-direction: column;
     h3 {
-        font-style:oblique;
+        font-style: oblique;
     }
 }
 
 .picture-rotation {
-    max-width: 20%;
+    max-width: 100%;
     img {
         width: 200%;
     }
