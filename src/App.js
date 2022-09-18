@@ -39,11 +39,12 @@ function App() {
       <div className="header">
         <h1>POKEDEX</h1>
         <FontAwesomeIcon icon={faGamepad} size="3x" />
+        
+        <div className="checkboxes">
         <h3>Hide column?</h3>
         <label className="container">Picture
           <input type="checkbox" value={checkedPicture} onChange={pictureHandler} />
         </label>
-
         <label className="container">Weight
           <input type="checkbox" value={checkedWeight} onChange={weightHandler} />
         </label>
@@ -55,6 +56,7 @@ function App() {
         <label className="container">Types
           <input type="checkbox" value={checkedTypes} onChange={typesHandler} />
         </label>
+        </div>
       </div>
       <Pokedex pokemons={pokemons} checkedPicture={checkedPicture} checkedWeight={checkedWeight} checkedHeight={checkedHeight} checkedTypes={checkedTypes} />
     </div>
