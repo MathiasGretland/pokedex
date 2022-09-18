@@ -5,9 +5,9 @@ import Loading from './Loading'
 import { useState } from 'react'
 import Popup from './Popup'
 
-export const Pokemon = ({ name, checkedPicture, checkedWeight, checkedHeight, checkedTypes }) => {
+const Pokemon = ({ name, checkedPicture, checkedWeight, checkedHeight, checkedTypes }) => {
 
-    const { data, error, isLoading, isFetching } = useGetPokemonByNameQuery(name)
+    const { data, error, isLoading } = useGetPokemonByNameQuery(name)
     const [open, setOpen] = useState(false)
     if (isLoading || !data) {
       return <Loading />
@@ -30,3 +30,5 @@ export const Pokemon = ({ name, checkedPicture, checkedWeight, checkedHeight, ch
       </>
     )
   }
+
+export default Pokemon

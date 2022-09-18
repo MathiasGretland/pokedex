@@ -1,12 +1,9 @@
 import { Paper, Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
 import { TableContainer } from "@mui/material";
-import React, {useState} from "react";
-import { useGetPokemonByNameQuery } from "../services/pokemon";
-import Loading from "./Loading";
-import { Pokemon } from "./Pokemon";
+import React from "react";
+import Pokemon from "./Pokemon";
 
 const Pokedex = ({pokemons, checkedPicture, checkedWeight, checkedHeight, checkedTypes}) => {
-
     return(
       <TableContainer component={Paper}>
         <Table className="pokedex">

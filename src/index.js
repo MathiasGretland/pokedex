@@ -5,8 +5,11 @@ import reportWebVitals from './reportWebVitals';
 import App from './App'
 import { store } from './store'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+import { ApiProvider } from '@reduxjs/toolkit/dist/query/react';
+import {useGetPokemonByNameQuery} from "./services/pokemon"
+
+ReactDOM.createRoot(document.getElementById('root'))
+  .render(
   <React.StrictMode>
     <Provider store={store}>
     <App />

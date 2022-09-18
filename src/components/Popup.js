@@ -11,12 +11,14 @@ const Popup = ( {open, setOpen, data} ) => {
 
     const newImageHandler = () => {
         const images = []
+        // eslint-disable-next-line
         Object.values(data.sprites).map((val) => {
             if (val) {
                 images.push(val)
             }
         })
         const slicedImages = images.slice(0,-2)
+        // eslint-disable-next-line
         slicedImages.map((val, i) => {
             if (val === selectedImage) {
                 if (i !== slicedImages.length - 1){
