@@ -7,7 +7,7 @@ import { faGaugeHigh, faHammer, faHeart, faShield, faShieldHalved, faWandMagicSp
 
 const Popup = ({ open, setOpen, data }) => {
 
-    const [selectedImage, setSelectedImage] = useState(data.sprites.back_default)
+    const [selectedImage, setSelectedImage] = useState(data.sprites.front_default)
 
     const newImageHandler = () => {
         const images = []
@@ -19,6 +19,7 @@ const Popup = ({ open, setOpen, data }) => {
         })
         const slicedImages = images.slice(0, -2)
         // eslint-disable-next-line
+        slicedImages.reverse()
         slicedImages.map((val, i) => {
             if (val === selectedImage) {
                 if (i !== slicedImages.length - 1) {
