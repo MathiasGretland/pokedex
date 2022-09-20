@@ -9,8 +9,11 @@ const Pokemon = ({ name, checkedPicture, checkedWeight, checkedHeight, checkedTy
 
   const { data, error, isLoading } = useGetPokemonByNameQuery(name)
   const [open, setOpen] = useState(false)
-  if (isLoading || !data) {
+  if (isLoading) {
     return <Loading />
+  }
+  if (!data) {
+    return <>Couldn't find the pokemon your looking for. Are you sure its spelled right?</>
   }
 
   return (
