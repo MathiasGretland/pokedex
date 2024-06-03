@@ -2,8 +2,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { TAbilities, TCries, THeldItems, TPastTypes, TForms, TTypes, TSprites, TGameIndices, TMoves, TPastAbilities, TSpecies, TStats } from '../api/Index';
 
-
-// Define an interface for the Pokemon data
+// interface for: /pokemon/{name} 
 export interface IPokemon {
   abilities: TAbilities[];
   base_experience: number;
@@ -25,8 +24,6 @@ export interface IPokemon {
   stats: TStats[];
   types: TTypes[];
   weight: number;
-  
-  // Add any other fields you need from the API response
 }
 
 // Define a service using a base URL and expected endpoints
