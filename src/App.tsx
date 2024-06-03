@@ -18,7 +18,7 @@ function App() {
   const [checkedHeight, setCheckedHeight] = useState(true)
   const [checkedTypes, setCheckedTypes] = useState(true)
 
-  const pokemons = ['bulbasaur', 'charmander', 'squirtle', 'pikachu', 'articuno', 'zapdos', 'moltres', 'dragonite', 'mewtwo', 'mew']
+  const pokemons = ['bulbasaur', 'charmander', 'squirtle', 'pikachu', 'articuno', 'zapdos', 'moltres', 'dragonite', 'mewtwo', 'mew', 'clefairy']
 
   //Handlers for checkboxes
   const pictureHandler = () => {

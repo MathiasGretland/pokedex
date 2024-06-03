@@ -1,11 +1,20 @@
 //import pokemonQuery
 import { TableCell, TableRow, } from '@material-ui/core'
-import { useGetPokemonByNameQuery } from '../services/pokemon'
+import { useGetPokemonByNameQuery } from '../api/pokemon'
 import Loading from './Loading'
 import { useState } from 'react'
 import Popup from './Popup'
 
-const Pokemon = ({ name, checkedPicture, checkedWeight, checkedHeight, checkedTypes }) => {
+interface PokedexProps {
+  name: string;
+  checkedPicture: boolean;
+  checkedWeight: boolean;
+  checkedHeight: boolean;
+  checkedTypes: boolean;
+}
+
+const Pokemon = (props: PokedexProps) => {
+  const { name, checkedPicture, checkedWeight, checkedHeight, checkedTypes } = props;
 
   const { data, error, isLoading } = useGetPokemonByNameQuery(name)
   const [open, setOpen] = useState(false)
@@ -15,6 +24,7 @@ const Pokemon = ({ name, checkedPicture, checkedWeight, checkedHeight, checkedTy
   if (!data) {
     return <>Couldn't find the pokemon your looking for. Are you sure its spelled right?</>
   }
+
 
   return (
     <>

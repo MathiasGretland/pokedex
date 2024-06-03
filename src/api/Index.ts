@@ -1,0 +1,12 @@
+export type { TSprites } from './pokemon/Sprites';
+export type { TTypes } from './pokemon/Types';
+export type { TPastTypes } from './pokemon/PastTypes';
+export type { THeldItems } from './pokemon/HeldItems';
+export type { TAbilities } from './pokemon/Abilities';
+export type { TCries} from './pokemon/Cries';
+export type { TForms } from './pokemon/Forms';
+export type { TGameIndices } from './pokemon/GameIndices';
+export type { TMoves } from './pokemon/Moves';
+export type { TPastAbilities } from './pokemon/PastAbilities';
+export type { TSpecies } from './pokemon/Species';
+export type { TStats } from './pokemon/Stats';

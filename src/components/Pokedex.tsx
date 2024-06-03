@@ -4,7 +4,18 @@ import { Paper, Table, TableBody, TableCell, TableHead, TableRow } from "@materi
 import { TableContainer } from "@mui/material";
 import Pokemon from "./Pokemon";
 
-const Pokedex = ({ pokemons, checkedPicture, checkedWeight, checkedHeight, checkedTypes }) => {
+interface PokedexProps {
+  pokemons: string[];
+  checkedPicture: boolean;
+  checkedWeight: boolean;
+  checkedHeight: boolean;
+  checkedTypes: boolean;
+}
+
+//const Pokedex = ({ pokemons, checkedPicture, checkedWeight, checkedHeight, checkedTypes }) => {
+const Pokedex = (props: PokedexProps) => {  
+  const { pokemons, checkedHeight, checkedPicture, checkedTypes, checkedWeight } = props;
+
   return (
     <TableContainer component={Paper}>
       <Table className="pokedex">

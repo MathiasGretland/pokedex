@@ -3,36 +3,40 @@ import React, { useState } from 'react'
 import Button from '@material-ui/core/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGaugeHigh, faHammer, faHeart, faShield, faShieldHalved, faWandMagicSparkles } from "@fortawesome/free-solid-svg-icons";
+import { IPokemon } from '../api/pokemon';
 
+interface PopupProps {
+    open: boolean;
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    data: IPokemon;
+}
 
-const Popup = ({ open, setOpen, data }) => {
+const Popup = (props: PopupProps) => {
+    const { open, setOpen,  data} = props;
 
-    const [selectedImage, setSelectedImage] = useState(data.sprites.front_default)
+    const [selectedImage, setSelectedImage] = useState(data.sprites?.front_default)
 
     const newImageHandler = () => {
-        const images = []
-        // eslint-disable-next-line
-        Object.values(data.sprites).map((val) => {
-            if (val) {
-                images.push(val)
-            }
-        })
-        const slicedImages = images.slice(0, -2)
-        slicedImages.reverse()
-        // eslint-disable-next-line
-        slicedImages.map((val, i) => {
-            if (val === selectedImage) {
-                if (i !== slicedImages.length - 1) {
-                    setSelectedImage(slicedImages[i + 1])
-                }
-                else {
-                    setSelectedImage(slicedImages[0])
-                }
-            }
-        })
+        switch(selectedImage) {
+            case data.sprites.front_default:
+                setSelectedImage(data.sprites.back_default);
+                break;
+            case data.sprites.back_default:
+                setSelectedImage(data.sprites.front_shiny);
+                break;
+            case data.sprites.front_shiny:
+                setSelectedImage(data.sprites.back_shiny);
+                break;
+            case data.sprites.back_shiny:
+                setSelectedImage(data.sprites.front_default);
+                break;
+            default:
+                setSelectedImage(data.sprites.front_default);
+        }
     }
-
+    
     return (
+        
         <Modal
             open={open}
             onClose={() => setOpen(false)}
