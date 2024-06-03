@@ -18,7 +18,7 @@ const Pokedex = (props: PokedexProps) => {
 
   return (
     <TableContainer component={Paper}>
-      <Table className="pokedex">
+      <Table>
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>

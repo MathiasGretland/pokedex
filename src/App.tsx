@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 //import styles
 //import "./styles/app.scss"
-import { useTheme } from '@mui/material/styles';
 //import components
 import Pokedex from './components/Pokedex'
 //Import icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGamepad } from "@fortawesome/free-solid-svg-icons";
-
-
+import Box from "@mui/material/Box";
+import { Checkbox, Typography } from "@mui/material";
+import Grid from "@material-ui/core/Grid";
+ 
 function App() {
-  const theme = useTheme();
 
   //useState for checkboxes
   const [checkedPicture, setCheckedPicture] = useState(true)
@@ -38,31 +38,31 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <div className="header">
-        <h1>POKEDEX</h1>
+    <Box sx={{ padding: "0rem 1rem 0rem 1rem", maxWidth: "1200px", margin: "0 auto"}}>
+      <Box sx={{maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "flex-start", alignItems: "center", flexDirection: "row"}}>
+        <Typography variant="h1" fontSize={"3rem"}>POKEDEX</Typography>
         <FontAwesomeIcon icon={faGamepad} size="3x" />
 
-        <div className="checkboxes">
-          <h3>Hide column?</h3>
-          <label className="container">Picture
-            <input type="checkbox" /*value={checkedPicture}*/ onChange={pictureHandler} />
-          </label>
-          <label className="container">Weight
-            <input type="checkbox" /*value={checkedWeight}*/ onChange={weightHandler} />
-          </label>
-
-          <label className="container">Height
-            <input type="checkbox" /*value={checkedHeight}*/ onChange={heightHandler} />
-          </label>
-
-          <label className="container">Types
-            <input type="checkbox" /*value={checkedTypes}*/ onChange={typesHandler} />
-          </label>
-        </div>
-      </div>
+        <Box sx={{marginLeft: 3}}>
+          <Typography variant="h3" fontSize={"18px"} fontWeight={"fontWeightBold"}>Hide column?</Typography>
+          <Grid container spacing={2}>
+            <Grid item xs={6} md={2}>
+              <Typography variant="body2">Picture<Checkbox onChange={pictureHandler} size="small"/></Typography>
+            </Grid>
+            <Grid item xs={6} md={2}>
+            <Typography variant="body2">Weight<Checkbox onChange={weightHandler} size="small"/></Typography>
+            </Grid>
+            <Grid item xs={6} md={2}>
+            <Typography variant="body2">Height<Checkbox onChange={heightHandler} size="small"/></Typography>
+            </Grid>
+            <Grid item xs={6} md={2}>
+            <Typography variant="body2">Types<Checkbox onChange={typesHandler} size="small"/></Typography>
+            </Grid>
+          </Grid>
+        </Box>
+      </Box>
       <Pokedex pokemons={pokemons} checkedPicture={checkedPicture} checkedWeight={checkedWeight} checkedHeight={checkedHeight} checkedTypes={checkedTypes} />
-    </div>
+    </Box>
   )
 }
 
