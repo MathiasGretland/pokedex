@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 //import styles
-import "./styles/app.scss"
+//import "./styles/app.scss"
+import { useTheme } from '@mui/material/styles';
 //import components
 import Pokedex from './components/Pokedex'
 //Import icons
@@ -9,6 +10,8 @@ import { faGamepad } from "@fortawesome/free-solid-svg-icons";
 
 
 function App() {
+  const theme = useTheme();
+
   //useState for checkboxes
   const [checkedPicture, setCheckedPicture] = useState(true)
   const [checkedWeight, setCheckedWeight] = useState(true)
@@ -43,18 +46,18 @@ function App() {
         <div className="checkboxes">
           <h3>Hide column?</h3>
           <label className="container">Picture
-            <input type="checkbox" value={checkedPicture} onChange={pictureHandler} />
+            <input type="checkbox" /*value={checkedPicture}*/ onChange={pictureHandler} />
           </label>
           <label className="container">Weight
-            <input type="checkbox" value={checkedWeight} onChange={weightHandler} />
+            <input type="checkbox" /*value={checkedWeight}*/ onChange={weightHandler} />
           </label>
 
           <label className="container">Height
-            <input type="checkbox" value={checkedHeight} onChange={heightHandler} />
+            <input type="checkbox" /*value={checkedHeight}*/ onChange={heightHandler} />
           </label>
 
           <label className="container">Types
-            <input type="checkbox" value={checkedTypes} onChange={typesHandler} />
+            <input type="checkbox" /*value={checkedTypes}*/ onChange={typesHandler} />
           </label>
         </div>
       </div>

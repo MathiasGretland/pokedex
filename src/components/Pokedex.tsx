@@ -1,6 +1,7 @@
+import React from "react";
+
 import { Paper, Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
 import { TableContainer } from "@mui/material";
-import React from "react";
 import Pokemon from "./Pokemon";
 
 const Pokedex = ({ pokemons, checkedPicture, checkedWeight, checkedHeight, checkedTypes }) => {
