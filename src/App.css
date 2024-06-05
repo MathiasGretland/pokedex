@@ -1,0 +1,4 @@
+@font-face {
+    font-family: 'Pokemon';
+    src: local('Pokemon'), url(./fonts/pkmnfl.ttf) format('truetype');
+  }

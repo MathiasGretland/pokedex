@@ -1,12 +1,13 @@
 //import pokemonQuery
 import { TableCell, TableRow, } from '@material-ui/core'
-import { useGetPokemonByNameQuery } from '../api/pokemon'
+import { IPokemon, useGetPokemonByNameQuery } from '../api/pokemon'
 import Loading from './Loading'
 import { useState } from 'react'
 import Popup from './Popup'
+import { Typography } from '@mui/material'
 
 interface PokedexProps {
-  name: string;
+  data: IPokemon;
   checkedPicture: boolean;
   checkedWeight: boolean;
   checkedHeight: boolean;
@@ -14,25 +15,14 @@ interface PokedexProps {
 }
 
 const Pokemon = (props: PokedexProps) => {
-  const { name, checkedPicture, checkedWeight, checkedHeight, checkedTypes } = props;
+  const { data, checkedPicture, checkedWeight, checkedHeight, checkedTypes } = props;
 
-  const { data, error, isLoading } = useGetPokemonByNameQuery(name)
   const [open, setOpen] = useState(false)
-  if (isLoading) {
-    return <Loading />
-  }
-  if (!data) {
-    return <>Couldn't find the pokemon your looking for. Are you sure its spelled right?</>
-  }
-
 
   return (
     <>
-      {error &&
-        <>Oh no, there was an error</>
-      }
       <TableRow key={data.species.name} onClick={() => setOpen(true)} >
-        <TableCell>{data.species.name.charAt(0).toUpperCase() + data.species.name.slice(1)}</TableCell>
+        <TableCell><Typography fontFamily={"Pokemon"}>{data.species.name.charAt(0).toUpperCase() + data.species.name.slice(1)}</Typography> </TableCell>
         <TableCell style={checkedPicture ? {} : { visibility: `hidden`, display: `none` }}><img src={data.sprites.front_default} alt={data.species.name} /></TableCell>
         <TableCell>{data.id}</TableCell>
         <TableCell style={checkedWeight ? {} : { visibility: `hidden`, display: `none` }}>{data.weight}</TableCell>

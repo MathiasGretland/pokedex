@@ -1,42 +1,72 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import { Paper, Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
-import { TableContainer } from "@mui/material";
-import Pokemon from "./Pokemon";
+import PokedexTable from './PokedexTable'
+//Import icons
+import CatchingPokemonTwoToneIcon from '@mui/icons-material/CatchingPokemonTwoTone';
+import Box from "@mui/material/Box";
+import { Checkbox, SvgIcon, Typography } from "@mui/material";
+import Grid from "@material-ui/core/Grid";
+import { IPokemon, useGetMultiplePokemonsByNameQuery, useGetPokemonByNameQuery } from "../api/pokemon";
 
-interface PokedexProps {
-  pokemons: string[];
-  checkedPicture: boolean;
-  checkedWeight: boolean;
-  checkedHeight: boolean;
-  checkedTypes: boolean;
-}
+const Pokedex = () => {
 
-//const Pokedex = ({ pokemons, checkedPicture, checkedWeight, checkedHeight, checkedTypes }) => {
-const Pokedex = (props: PokedexProps) => {  
-  const { pokemons, checkedHeight, checkedPicture, checkedTypes, checkedWeight } = props;
+  //useState for checkboxes
+  const [checkedPicture, setCheckedPicture] = useState(true)
+  const [checkedWeight, setCheckedWeight] = useState(true)
+  const [checkedHeight, setCheckedHeight] = useState(true)
+  const [checkedTypes, setCheckedTypes] = useState(true)
 
-  return (
-    <TableContainer component={Paper}>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell style={checkedPicture ? {} : { visibility: `hidden`, display: `none` }} >Picture</TableCell>
-            <TableCell>Id</TableCell>
-            <TableCell style={checkedWeight ? {} : { visibility: `hidden`, display: `none` }} >Weight</TableCell>
-            <TableCell style={checkedHeight ? {} : { visibility: `hidden`, display: `none` }} >Height</TableCell>
-            <TableCell style={checkedTypes ? {} : { visibility: `hidden`, display: `none` }} >Types</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {pokemons.map((pokemon, index) => (
-            <Pokemon key={index} name={pokemon} checkedPicture={checkedPicture} checkedWeight={checkedWeight} checkedHeight={checkedHeight} checkedTypes={checkedTypes} /> //You need a key for every child (pokemon), for that we can easily use an index counter
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  )
+  const pokemons = ['bulbasaur', 'charmander', 'squirtle', 'pikachu', 'articuno', 'zapdos', 'moltres', 'dragonite', 'mewtwo', 'mew', 'clefairy']
+
+  // Fetch the pokemons
+  const { data: pokemonData, error, isLoading } = useGetMultiplePokemonsByNameQuery(pokemons);
+
+  console.log("DATA", pokemonData)
+
+  //Handlers for checkboxes
+  const pictureHandler = () => {
+    setCheckedPicture(!checkedPicture)
+  }
+
+  const weightHandler = () => {
+    setCheckedWeight(!checkedWeight)
+  }
+
+  const heightHandler = () => {
+    setCheckedHeight(!checkedHeight)
+  }
+
+  const typesHandler = () => {
+    setCheckedTypes(!checkedTypes)
+  }
+
+    return (
+    <Box sx={{ padding: "0rem 1rem 0rem 1rem", maxWidth: "63vw", margin: "0 auto"}}>
+      <Box sx={{maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "flex-start", alignItems: "center", flexDirection: "row"}}>
+        <Typography variant="h1" fontSize={"3rem"} fontFamily={"Pokemon"}>POKEDEX</Typography>
+        <CatchingPokemonTwoToneIcon fontSize="large" />
+
+        <Box sx={{marginLeft: 3}}>
+          <Typography variant="h3" fontSize={"18px"} fontWeight={"fontWeightBold"} fontFamily={"Pokemon"}>Hide column?</Typography>
+          <Grid container spacing={2}>
+            <Grid item xs={6} md={2}>
+              <Typography variant="body2" fontFamily={"Pokemon"}>Picture<Checkbox onChange={pictureHandler} size="small"/></Typography>
+            </Grid>
+            <Grid item xs={6} md={2}>
+              <Typography variant="body2" fontFamily={"Pokemon"}>Weight<Checkbox onChange={weightHandler} size="small"/></Typography>
+            </Grid>
+            <Grid item xs={6} md={2}>
+              <Typography variant="body2" fontFamily={"Pokemon"}>Height<Checkbox onChange={heightHandler} size="small"/></Typography>
+            </Grid>
+            <Grid item xs={6} md={2}>
+              <Typography variant="body2" fontFamily={"Pokemon"}>Types<Checkbox onChange={typesHandler} size="small"/></Typography>
+            </Grid>
+          </Grid>
+        </Box>
+      </Box>
+      <PokedexTable pokemonData={pokemonData} isLoading={isLoading} error={error} checkedPicture={checkedPicture} checkedWeight={checkedWeight} checkedHeight={checkedHeight} checkedTypes={checkedTypes} />
+    </Box>
+    )
 }
 
 export default Pokedex
