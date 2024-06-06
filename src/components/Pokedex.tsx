@@ -6,7 +6,7 @@ import CatchingPokemonTwoToneIcon from '@mui/icons-material/CatchingPokemonTwoTo
 import Box from "@mui/material/Box";
 import { Checkbox, SvgIcon, Typography } from "@mui/material";
 import Grid from "@material-ui/core/Grid";
-import { IPokemon, useGetMultiplePokemonsByNameQuery, useGetPokemonByNameQuery } from "../api/pokemon";
+import { useGetMultiplePokemonsByNameQuery } from "../api/pokemon";
 
 const Pokedex = () => {
 
