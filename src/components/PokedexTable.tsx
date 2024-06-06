@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Paper, Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
-import { TableContainer } from "@mui/material";
+import { Typography, TableContainer } from "@mui/material";
 import Pokemon from "./Pokemon";
 import { IPokemon } from "../api/pokemon";
 import Loading from "./Loading";
@@ -18,7 +18,6 @@ interface PokedexProps {
   error: FetchBaseQueryError | SerializedError | undefined;
 }
 
-//const PokedexTable = ({ pokemons, checkedPicture, checkedWeight, checkedHeight, checkedTypes }) => {
 const PokedexTable = (props: PokedexProps) => {  
   const { pokemonData, checkedHeight, checkedPicture, checkedTypes, checkedWeight, isLoading, error } = props;
 
@@ -38,12 +37,12 @@ const PokedexTable = (props: PokedexProps) => {
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell style={checkedPicture ? {} : { visibility: `hidden`, display: `none` }} >Picture</TableCell>
-            <TableCell>Id</TableCell>
-            <TableCell style={checkedWeight ? {} : { visibility: `hidden`, display: `none` }} >Weight</TableCell>
-            <TableCell style={checkedHeight ? {} : { visibility: `hidden`, display: `none` }} >Height</TableCell>
-            <TableCell style={checkedTypes ? {} : { visibility: `hidden`, display: `none` }} >Types</TableCell>
+            <TableCell><Typography fontFamily={"Pokemon"}>Name</ Typography></TableCell>
+            <TableCell style={checkedPicture ? {} : { visibility: `hidden`, display: `none` }} ><Typography fontFamily={"Pokemon"}>Picture</ Typography></TableCell>
+            <TableCell><Typography fontFamily={"Pokemon"}>Id</ Typography></TableCell>
+            <TableCell style={checkedWeight ? {} : { visibility: `hidden`, display: `none` }} ><Typography fontFamily={"Pokemon"}>Weight</ Typography></TableCell>
+            <TableCell style={checkedHeight ? {} : { visibility: `hidden`, display: `none` }} ><Typography fontFamily={"Pokemon"}>Height</ Typography></TableCell>
+            <TableCell style={checkedTypes ? {} : { visibility: `hidden`, display: `none` }} ><Typography fontFamily={"Pokemon"}>Types</ Typography></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

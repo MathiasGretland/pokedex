@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import PokedexTable from './PokedexTable'
 //Import icons
 import CatchingPokemonTwoToneIcon from '@mui/icons-material/CatchingPokemonTwoTone';
 import Box from "@mui/material/Box";
-import { Checkbox, SvgIcon, Typography } from "@mui/material";
+import { Checkbox, Typography } from "@mui/material";
 import Grid from "@material-ui/core/Grid";
 import { useGetMultiplePokemonsByNameQuery } from "../api/pokemon";
 
